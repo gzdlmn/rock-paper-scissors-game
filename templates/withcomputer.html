@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block title %}
+    Auto Play
+{% endblock %}
+{% block body %}
+<section class="container-fluid p-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 ">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div style="display:none;">
+                        {% for field in form %}
+                            {{field}}
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Play Game</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-fluid p-0">
+    <h5 style="color:green;" class="text-center">Auto Play now!</h5>
+    <div class="container">
+        <div class="d-flex justify-content-center">
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="text-center"><i class="fas fa-user"></i></h5>
+                    <h5 class="text-center">{{request.user.username}}</h5>
+                    <hr/>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            {% for gamemodel in gamemodels %}
+                                <h1 class="text-center">{{gamemodel.icon_gamer|safe}}</h1>
+                                <hr/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="text-center"><i class="fas fa-pencil-alt"></i></h5>
+                    <h5 class="text-center">Score</h5>
+                    <hr/>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            {% for gamemodel in gamemodels %}
+                                <h1 class="text-center">{{gamemodel.counter_gamer|safe}}</h1>
+                                <hr/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="text-center"><i class="fas fa-laptop"></i></h5>
+                    <h5 class="text-center">computer</h5>
+                    <hr/>
+                    <div class="row justify-content-center">
+                         <div class="col-12">
+                            {% for gamemodel in gamemodels %}
+                                <h1 class="text-center">{{gamemodel.icon_computer|safe}}</h1>
+                                <hr/>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

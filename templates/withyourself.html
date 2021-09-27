@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}
+    Select and Play
+{% endblock %}
+{% block body %}
+<section class="container-fluid p-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="POST">
+                   {% csrf_token %}
+                    {% for field in form %}
+                        {% if field.name == "computer" %}
+                            {{field}}
+                        {% elif field.name == "gamer" %}
+                            <div class="row justify-content-around mx-auto">
+                                <div style="background-image: url('/media/hand-rock-solid.svg');background-size:contain;background-repeat:no-repeat;background-position:center center;height:150px;" class="col-4">
+                                    <input type="radio" name="gamer" id="rock" value="rock">
+                                    <h6 style="margin-top:40px;" class="text-center">rock</h6>
+                                </div>
+                                <div style="background-image: url('/media/hand-paper-solid.svg');background-size:contain;background-repeat:no-repeat;background-position:center center;height:150px;" class="col-4">
+                                    <input type="radio" name="gamer" id="paper" value="paper">
+                                    <h6 style="margin-top:50px;" class="text-center">paper</h6>
+                                </div>
+                                <div  style="background-image: url('/media/hand-scissors-solid.svg');background-size:contain;background-repeat:no-repeat;background-position:center center;height:150px;" class="col-4">
+                                   <input type="radio" name="gamer" id="scissors" value="scissors">
+                                    <h6 style="margin-top:40px;" class="text-center">scissors</h6>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    <br/>
+                    <button class="btn btn-success btn-block">Select and Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-fluid p-0">
+    <div style="border-bottom:1px solid #28a745;" class="container">
+        <h5 class="text-center text-success"><i class="fas fa-user"></i></h5>
+        <p class="text-center text-success">selected by you</p>
+        <div class="row align-items-center h-100">
+            <div class="col-md-6 mx-auto text-center">
+                <h1>{{gamemodelyourselflast.icon_gamer_yourself|safe}}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center">{{gamemodelyourselflast.counter_gamer_yourself|safe}}</h1>
+            </div>
+        </div>
+    </div>
+    <div style="border-top:1px solid #17a2b8;" class="container mt-2">
+        <h5 class="text-center text-info"><i class="fas fa-laptop"></i></h5>
+        <h5 class="text-center text-info">selected by computer</h5>
+        <div class="row align-items-center h-100">
+            <div class="col-md-6 mx-auto text-center">
+                <h1>{{gamemodelyourselflast.icon_computer_yourself|safe}}</h1>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

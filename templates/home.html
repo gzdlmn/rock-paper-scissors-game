@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}
+    Rock Paper Scissors Game
+{% endblock %}
+{% block body %}
+<section class="container-fluid p-0 home">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div style="background: url('/media/arrow-up-right.svg') no-repeat center center;background-size:contain;" class="col-4">
+                <div class="container h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-12 mx-auto text-center">
+                            <h4 class="text-warning">paper covers rock</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <img class="img-fluid" src="/media/hand-rock-solid.svg">
+            </div>
+            <div style="background: url('/media/arrow-down-right.svg') no-repeat center center;background-size:contain;" class="col-4">
+                <div class="container h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-12 mx-auto text-center">
+                            <h4 class="text-warning">rock crushes scissors</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <img class="img-fluid" src="/media/hand-paper-solid.svg">
+            </div>
+            <div style="background: url('/media/arrow-left.svg') no-repeat center center;background-size:contain;" class="col-4">
+                <div class="container h-100">
+                    <div class="row align-items-center h-100">
+                        <div class="col-12 mx-auto text-center">
+                            <h4 class="text-warning">scissors cuts paper</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <img class="img-fluid" src="/media/hand-scissors-solid.svg">
+            </div>
+        </div>
+    </div>
+</section>
+<button style="bottom:0;position:fixed;left:50%;transform:translateX(-50%);" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    How does Rock Paper Scissors game work?
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">How to Play rock paper scissors?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Rock is designated by maintaining the fist, Scissors by extending the middle and index fingers, and Paper by holding
+            the hand out flat. If players throw out the same gesture, the game goes on. If not, it's decided by a harmonic and intransitive
+            method — <mark>rock crushes scissors, scissors cuts paper, but paper covers rock.</mark></p>
+        <h5>What is a Auto Play?</h5>
+          <p>the computer will automatically select for you</p>
+        <h5>What is a Select and Play?</h5>
+          <p>rock paper scissors choose the one you want</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
