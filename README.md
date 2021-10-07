@@ -9,4 +9,7 @@ python manage.py runserver
 ### create a superuser(admin)
 python manage.py create superuser
 
-
+#### Responsive Design
+**Bootstrap 4**
+https://getbootstrap.com/docs/4.5/getting-started/introduction/
+from this address, project folders downloaded to the project.
